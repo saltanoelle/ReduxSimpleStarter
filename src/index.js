@@ -31,6 +31,7 @@ class App extends Component {
   return (
  
   <div>
+   <h2 className="title">styleSigna</h2>
    <p className="search_bar">Search</p> <SearchBar />
    <VideoDetail video={this.state.selectedVideo}/>
    < VideoList videos={this.state.videos }/>
