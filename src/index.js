@@ -6,7 +6,7 @@ import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 
 const API_KEY = 'AIzaSyAoNbenBSktbkdmzX1vDg93rq8d3kZfqaQ';
-//youtube API
+//youtube API key
 
 
 
@@ -21,21 +21,19 @@ class App extends Component {
   };
 
   YTSearch({key: API_KEY, term: 'fashion'}, (videos) => {
-  this.setState({
-  videos:videos,
-  selectedVideo: videos[0]
+  this.setState({ videos:videos, selectedVideo: videos[0]
   }); //if you use same keyword and value you can just do ({videos})
  });
 }
   render(){
   return (
- 
+ ////selectedVideo is declared as a new object 
   <div>
    <h2 className="title">styleSigna</h2>
    <p className="search_bar">Search</p> <SearchBar />
    <VideoDetail video={this.state.selectedVideo}/>
-   < VideoList videos={this.state.videos }/>
-  </div>
+   < VideoList onVideoSelect={selectedVideo => this.setState({selectedVideo})} videos={this.state.videos}/> 
+  </div> 
   );
 }
 }

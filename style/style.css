@@ -1,8 +1,38 @@
-.title{
-  margin-top: 50px; 
-  text-align: center;
+body{
+  background-image: https://wylarah.com.au/wp-content/uploads/2016/08/Marble-background.jpg
 }
 
-.search_input{
+.title{
+  margin-top: 50px; 
+   text-align: center;
+ 
+}
+
+.search_bar{
   margin-bottom: 30px;
+ /* text-align: center;*/
+}
+
+.search_bar input{
+width: 30%;
+}
+
+
+.video-item img {
+  max-width: 64px;
+}
+
+.video-detail .details{
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.list-group-item{
+  cursor: pointer;
+}
+
+.list-group-item:hover{
+ background-color: #eee;
 }
