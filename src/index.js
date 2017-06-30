@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, {Component} from 'react';   //manage components
 import ReactDOM from 'react-dom'; //render the code
 import SearchBar from './components/search_bar'; //declare the path
@@ -19,18 +20,21 @@ class App extends Component {
     videos: [],
     selectedVideo: null
   };
-
-  YTSearch({key: API_KEY, term: 'fashion'}, (videos) => {
+    this.videoSearch('fashion') 
+  }
+  videoSearch(term){
+  YTSearch({key: API_KEY, term: term}, (videos) => {
   this.setState({ videos:videos, selectedVideo: videos[0]
   }); //if you use same keyword and value you can just do ({videos})
  });
 }
   render(){
+    const videoSearch = _.debounce((term)=> {this.videoSearch(term)},300);
   return (
  ////selectedVideo is declared as a new object 
   <div>
    <h2 className="title">styleSigna</h2>
-   <p className="search_bar">Search</p> <SearchBar />
+   <p>Search</p> <SearchBar onSearchTermChange={videoSearch} />
    <VideoDetail video={this.state.selectedVideo}/>
    < VideoList onVideoSelect={selectedVideo => this.setState({selectedVideo})} videos={this.state.videos}/> 
   </div> 
